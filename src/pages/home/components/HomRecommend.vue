@@ -1,6 +1,6 @@
 <template>
 	<div class="home-recommend">
-		<div class="recommend-list">热销推荐</div>
+		<div class="recommend-list">周末去哪</div>
 		<ul>
 			<li class="recommend-item border-bottom" v-for="item in recommendList" :key="item.id">
 				<img class="item-img " :src="item.imgUrl">
