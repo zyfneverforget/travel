@@ -12,81 +12,15 @@
 			<div class="area">
 				<div class="title border-topbottom">热门</div>
 				<div class="button-list clearfix">
-					<div class="button-wrapper">
-						<div class="button">北京</div>
+					<div class="button-wrapper" v-for="item in hotCities" :key="item.id">
+						<div class="button">{{item.name}}</div>
 					</div>
 				</div>
 			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-				</div>
-			</div>
-			<div class="area">
-				<div class="title border-topbottom">A</div>
-				<div class="list-item">
-					<div class="item border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
-					<div class="item  border-bottom">发货方</div>
+			<div class="area" v-for="(items,key) in cities" :key="key">
+				<div class="title border-topbottom" >{{key}}</div>
+				<div class="list-item" v-for="city in items" :key="city.id">
+					<div class="item border-bottom">{{city.name}}</div>
 				</div>
 			</div>
 		</div>	
@@ -97,6 +31,7 @@
 import BScroll from 'better-scroll'
 export default {
 	name: 'CityList',
+	props: ['hotCities','cities'],
 	data (){
 		return {
 			scroll: null,
