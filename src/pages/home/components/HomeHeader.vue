@@ -7,10 +7,10 @@
 			<span class="iconfont">&#xe632;</span>
 			输入城市/景点/游玩主题
 		</div>
-		<div class="header-right">
+		<router-link tag="div" to="/city" class="header-right">
 			爱上你巴德
 			<span class="iconfont">&#xe62d;</span>
-		</div>
+		</router-link>
 	</div>
 </template>
 
