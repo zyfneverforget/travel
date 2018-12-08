@@ -18,19 +18,10 @@
 <script>
 export default {
 	name: 'HomeWeekend',
-		data (){
+	props: ['weekendList'],
+		data () {
 		return {
-			weekendList: [{
-        "id": "0001",
-        "imgUrl": "http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg",
-        "title": "故宫",
-        "desc": "东方宫殿建筑代表，世界宫殿建筑典范"
-      }, {
-        "id": "0002",
-        "imgUrl": "http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_140x140_abb362a7.jpg",
-        "title": "南山滑雪场",
-        "desc": "北京专业级滑雪圣地"
-      }]
+			
 		}
 	}
 }
