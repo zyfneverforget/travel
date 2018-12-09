@@ -1,9 +1,9 @@
 <template>
 	<div class="city">
 		<city-header></city-header>
-		<city-search></city-search>
+		<city-search :cities="cities"></city-search>
 		<city-list :letter="letter" :cities="cities" :hotCities="hotCities"></city-list>
-		<alphabet @change="onChange" :cities="cities"></alphabet>
+		<alphabet v-show="isShow" @change="onChange" :cities="cities"></alphabet>
 	</div>
 </template>
 
@@ -20,7 +20,9 @@ export default {
 		return {
 			cities: null,
 			hotCities: [],
-			letter: ''
+			letter: '',
+			isShow : true,
+			clientHeight: 0
 		}
 	},
 	methods: {
@@ -38,7 +40,16 @@ export default {
 	},
 	mounted (){
 		this.getCityInfo()
-	}
+		this.clientHeight = document.documentElement.clientHeight
+		//alert(this.clientHeight)
+		 window.onresize = ()=>{
+			if(document.documentElement.clientHeight < 500){
+				this.isShow = false
+			} else{
+				this.isShow = true
+			}
+		 }
+	},
 }
 </script>
 
