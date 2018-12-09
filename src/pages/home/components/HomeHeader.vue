@@ -8,7 +8,7 @@
 			输入城市/景点/游玩主题
 		</div>
 		<router-link tag="div" to="/city" class="header-right">
-			爱上你巴德
+			{{this.$store.state.city}}
 			<span class="iconfont">&#xe62d;</span>
 		</router-link>
 	</div>

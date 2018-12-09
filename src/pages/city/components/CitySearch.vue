@@ -3,7 +3,7 @@
 		<input　class="search-input" type="text" placeholder="输入城市名或拼音" v-model.trim="keywords">
 		<div v-show="keywords" class="search-content">
 			<ul>
-				<li class="item border-bottom" 
+				<li @click="selectCity(item.name)" class="item border-bottom" 
 				v-for="item in list" :key="item.id">{{item.name}}</li>
 				<li class="item border-bottom" v-show="!list.length">没有匹配结果</li>
 			</ul>
@@ -21,6 +21,12 @@ export default {
 			keywords : '',
 			list: [],
 			timer: null
+		}
+	},
+	methods: {
+		selectCity (name){
+			this.$store.commit('changeCity',name)
+			this.$router.push({ path: '/'})
 		}
 	},
 	watch :{
