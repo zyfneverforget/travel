@@ -2,9 +2,6 @@
 	<div class="banner-wrapper">
 		<div class="banner" @click="isShow = !isShow">
 			<img class="banner-img" src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg" alt="">
-			<div @click="toHome" class="arrow">
-				<div class="iconfont back">&#xe624;</div>
-			</div>
 			<div class="banner-title">
 				<p class="title-left">深圳野生动物园</p>
 				<p class="title-right">22</p>
@@ -24,9 +21,6 @@ export default {
 		}
 	},
 	methods :{
-		toHome (){
-			this.$router.go(-1)
-		},
 		closeGallary() {
 			this.isShow = false
 		}
@@ -41,16 +35,6 @@ export default {
 		overflow : hidden
 		.banner-img
 			width: 100%
-		.arrow
-			position: absolute 
-			top: 0.24rem
-			left : 0.24rem
-			border-radius: 50%	
-			background : black
-			.back
-				font-size : .5rem
-				padding .1rem
-				color : #fff
 		.banner-title
 			position : absolute
 			left: 0
