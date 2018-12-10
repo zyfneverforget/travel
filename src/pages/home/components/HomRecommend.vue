@@ -2,7 +2,7 @@
 	<div class="home-recommend">
 		<div class="recommend-list">周末去哪</div>
 		<ul>
-			<li class="recommend-item border-bottom" v-for="item in recommendList" :key="item.id">
+			<li @click="toDetail(item.id)" class="recommend-item border-bottom" v-for="item in recommendList" :key="item.id">
 				<img class="item-img " :src="item.imgUrl">
 				<div class="item-info">
 					<p class="item-title">{{item.title}}</p>
@@ -18,7 +18,11 @@
 export default {
 	name : 'HomeRecommend',
 	props: ['recommendList'],
-	
+	methods :{
+		toDetail(id){
+			this.$router.push({ name: 'Detail', params: { id }})
+		}
+	}
 }
 </script>
 
