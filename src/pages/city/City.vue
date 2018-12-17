@@ -13,13 +13,15 @@ import CitySearch from './components/CitySearch'
 import CityList from './components/CityList'
 import Alphabet from './components/Alphabet'
 import axios from 'axios'
+import Cities from './components/cities.js'
 export default {
 	name: 'City',
 	components:{ CityHeader, CitySearch,CityList,Alphabet},
 	data (){
 		return {
-			cities: null,
+			cities : Cities,
 			hotCities: [],
+			//mock : Cities,
 			letter: '',
 			isShow : true,
 			clientHeight: 0
@@ -27,11 +29,11 @@ export default {
 	},
 	methods: {
 		getCityInfo (){
-			axios.get('/api/city.json')
+			axios.get('http://rap2api.taobao.org/app/mock/119848/city')
 			.then((res)=>{
 				let data = res.data.data
 				this.hotCities = data.hotCities
-				this.cities = data.cities
+				//this.cities = data.cities
 			})
 		},
 		onChange(letter){
@@ -41,7 +43,6 @@ export default {
 	mounted (){
 		this.getCityInfo()
 		this.clientHeight = document.documentElement.clientHeight
-		//alert(this.clientHeight)
 		 window.onresize = ()=>{
 			if(document.documentElement.clientHeight < 500){
 				this.isShow = false

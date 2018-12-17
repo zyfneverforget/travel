@@ -1,13 +1,14 @@
 <template>
 	<div class="detail-list">
 		<div class="list-content" v-for="(item,index) in list" :key="index">
-			<span @click="show" class="iconfont down" v-show='item.children'>&#xe62d;</span>
+			<span @click="show" class="iconfont down" :class="{extend: isShow}" 
+			v-show='item.children'>&#xe62d;</span>
 			<div class="list-title border-bottom">
 				<span class="list-icon"></span>
 				{{item.title}}
 			</div>
-			<div class="children" v-if="item.children">
-				<detail-list v-show="isShow" :list="item.children"></detail-list>
+			<div class="children" v-show="isShow" v-if="item.children">
+				<detail-list  :list="item.children"></detail-list>
 			</div>
 		</div>
 	</div>
@@ -44,6 +45,8 @@ export default {
 			z-index : 1
 			font-size : .28rem
 			color : #bbb
+		.extend 
+			transform: rotate(180deg)
 		.list-title
 			font-size : .32rem
 			line-height : .8rem
@@ -59,5 +62,7 @@ export default {
 			margin-right : .1rem
 			background-size: .4rem 3rem
 		.children
-			padding : 0 .2rem
+			padding : 0 .1rem
+			.list-icon
+				display : none
 </style>

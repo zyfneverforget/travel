@@ -27,6 +27,7 @@ export default {
 		selectCity (name){
 			this.$store.commit('changeCity',name)
 			this.$router.push({ path: '/'})
+			this.keywords = ''
 		}
 	},
 	watch :{

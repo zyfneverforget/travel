@@ -41,7 +41,7 @@ export default {
 	},
 	methods:{
 		getHomeInfo (){
-			axios.get('/api/index.json?city='+ this.currentCity)
+			axios.get('http://rap2api.taobao.org/app/mock/119848/index?city='+ this.currentCity)
 			.then((res)=>{
 				let data = res.data.data
 				this.swiperList = data.swiperList

@@ -2,7 +2,7 @@
 	<div class="detail">
 		<detail-banner></detail-banner>
 		<detail-header></detail-header>
-		<detail-list :list ="list"></detail-list>
+		<detail-list :list ="categoryList"></detail-list>
 		<div class="content"></div>
 	</div>
 </template>
@@ -11,29 +11,28 @@
 import DetailBanner from './components/DetailBanner'
 import DetailHeader from './components/DetailHeader'
 import DetailList from './components/DetailList'
+import api from '@/axios/api.js'
+import axios from 'axios'
 export default {
 	name: 'Detail',
 	components: {DetailBanner,DetailHeader,DetailList},
 	data (){
 		return {
-			list :[{
-        "title": "大门票",
-        "children": [{
-          "title": "成人三馆联票",
-          "children": [{
-            "title": "成人三馆联票 - 某一连锁店销售"
-          }]
-        },{
-          "title": "成人五馆联票"
-        }]
-      }, {
-        "title": "亲子票"
-      }, {
-        "title": "儿童票"
-      }, {
-        "title": "特惠票"
-      }]
+			categoryList :[]
 		}
+	},
+	methods: {
+		getDetail (){
+			axios.get('/api/detail.json')
+			.then((res)=>{
+				console.log(res.data.data)
+				let data = res.data.data
+				this.categoryList = data.categoryList
+			})
+		}
+	},
+	activated (){
+		this.getDetail()
 	}
 }
 </script>
